@@ -1,0 +1,7 @@
+C:\Users\asada\Desktop\Fall2020\Windows-Programming\Assignment-04\Assignment-04\bin\Debug\Assignment-04.exe.config
+C:\Users\asada\Desktop\Fall2020\Windows-Programming\Assignment-04\Assignment-04\bin\Debug\Assignment-04.exe
+C:\Users\asada\Desktop\Fall2020\Windows-Programming\Assignment-04\Assignment-04\bin\Debug\Assignment-04.pdb
+C:\Users\asada\Desktop\Fall2020\Windows-Programming\Assignment-04\Assignment-04\obj\Debug\Assignment-04.csprojAssemblyReference.cache
+C:\Users\asada\Desktop\Fall2020\Windows-Programming\Assignment-04\Assignment-04\obj\Debug\Assignment-04.csproj.CoreCompileInputs.cache
+C:\Users\asada\Desktop\Fall2020\Windows-Programming\Assignment-04\Assignment-04\obj\Debug\Assignment-04.exe
+C:\Users\asada\Desktop\Fall2020\Windows-Programming\Assignment-04\Assignment-04\obj\Debug\Assignment-04.pdb
