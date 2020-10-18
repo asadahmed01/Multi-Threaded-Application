@@ -15,8 +15,9 @@ namespace Assignment_04
             using (StreamWriter file =
             new StreamWriter(fileName + ".txt", true))
             {
-                file.WriteLine(Utilities.GenerateString(130));
-                //file.Close();
+                 file.WriteLine(Utilities.GenerateString(200));
+                    //file.Close();
+                
             }
             
         }

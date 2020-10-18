@@ -12,9 +12,10 @@ namespace Assignment_04
     {
         //private readonly object balanceLock = new object();
         private static readonly object locker = new object();
+        static volatile bool stop = false;
         static void Main(string[] args)
         {
-            //static volatile bool stop = true;
+            
 
             List<Thread> threads = new List<Thread>();
             Utilities Utilities = new Utilities();
@@ -33,21 +34,33 @@ namespace Assignment_04
 
             // create the requested number of threads
             int threadCount = Int32.Parse(threadNumber);
-            ddfdfdsfdsfdsfdsfdsfa
-            
-            for (int i = 0; i < threadCount; i++)
-            {
-                Thread thread = new Thread(write);
-
-                threads.Add(thread);
-                thread.Start(fileName);
-                thread.Join();
-                
-            }
-            
             //new ThreadStart(() => write(fileName)));
             FileInfo fi = new FileInfo(fileName + ".txt");
-             Console.WriteLine("file size is : {0}", fi.Length);
+            //Console.WriteLine("file size is : {0}", fi.Length);
+
+            
+            //watchdog thread
+            Thread watchDogThread = new Thread(closeFile);
+            watchDogThread.Start(fi.Length);
+            
+
+            for (int i = 0; i < threadCount; i++)
+            {
+                //Thread thread = new Thread(write);
+
+                threads.Add(new Thread(write));
+                
+            }
+            foreach(Thread t in threads)
+            {
+                t.Start(fileName);
+                t.Join();
+                Thread.Sleep(1000);
+
+            }
+            watchDogThread.Join();
+            Thread.Sleep(1000);
+
             Console.WriteLine("Press Enter to continue...");
             Console.ReadLine();
         }
@@ -63,7 +76,18 @@ namespace Assignment_04
             //Thread.Sleep(200);
 
             Console.WriteLine("{0} Thread Done", Thread.CurrentThread.Name);
-            Thread.Sleep(200);
+            //Thread.Sleep(200);
+        }
+
+
+        static void closeFile(object file)
+        {
+            while(!stop)
+            {
+                Console.WriteLine("File size: {0}", file);
+                Thread.Sleep(1000);
+            }
+            
         }
     }
 }
